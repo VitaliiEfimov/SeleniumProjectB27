@@ -4,7 +4,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class CarInsuranceVerification {
+public class T1CarInsuranceVerification {
 
     /*
     1. Open Chrome browser
