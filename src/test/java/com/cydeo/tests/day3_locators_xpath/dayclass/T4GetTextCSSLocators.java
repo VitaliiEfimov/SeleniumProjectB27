@@ -21,7 +21,7 @@ public class T4GetTextCSSLocators {
 
         driver.get("https://login1.nextbasecrm.com/?forgot_password=yes");
 
-        WebElement resetPasswordBtn = driver.findElement(By.cssSelector("button[class='login-btn']"));
+        WebElement resetPasswordBtn = driver.findElement(By.cssSelector("button[class='login-btn']"));//"button.login-btn"
         String expectedPasswordBtn = "Reset password";
         //String actualPasswordBtn = resetPasswordBtn.getAttribute("value");
         String actualPasswordBtn = resetPasswordBtn.getText();
