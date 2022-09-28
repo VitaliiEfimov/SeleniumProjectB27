@@ -1,4 +1,4 @@
-package com.cydeo.tests.day4_xpath;
+package com.cydeo.tests.day4_xpath.dayclass;
 
 import com.cydeo.utilities.WebDriverFactory;
 import org.openqa.selenium.By;

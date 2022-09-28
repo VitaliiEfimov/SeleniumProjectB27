@@ -1,4 +1,4 @@
-package com.cydeo.tests.day4_xpath;
+package com.cydeo.tests.day4_xpath.dayclass;
 
 import com.cydeo.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
@@ -29,12 +29,12 @@ public class T1_xpath_cssSelector {
 
         //a. “Home” link
         WebElement homeLink = driver.findElement(By.cssSelector("a.nav-link"));
-        //WebElement homeLink2 = driver.findElement(By.cssSelector("a[class='nav-link']"));
+        WebElement homeLink2 = driver.findElement(By.cssSelector("a[class='nav-link']"));
 
 
         //b. “Forgot password” header
         WebElement forgotPassword = driver.findElement(By.xpath("//h2[.='Forgot Password']"));
-        //WebElement forgotPassword2 = driver.findElement(By.xpath("//h2[test()='Forgot Password']"));
+        WebElement forgotPassword2 = driver.findElement(By.xpath("//h2[text()='Forgot Password']"));
         //a[@href='/']
         //div[class='example']>h2
         //div.example>h2
