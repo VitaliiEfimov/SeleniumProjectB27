@@ -38,18 +38,18 @@ public class WebDriverFactory {
     }
 
 //My solution:
-    public static WebDriver getDriver1(String type){
+    public static WebDriver getDriver1(String type, int timeCapacity){
         if (type.equalsIgnoreCase("chrome")){
             WebDriverManager.chromedriver().setup();
             WebDriver driver = new ChromeDriver();
             driver.manage().window().maximize();
-            driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+            driver.manage().timeouts().implicitlyWait(timeCapacity, TimeUnit.SECONDS);
             return driver;
         }else if(type.equalsIgnoreCase("firefox")){
             WebDriverManager.firefoxdriver().setup();
             WebDriver driver = new FirefoxDriver();
             driver.manage().window().maximize();
-            driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+            driver.manage().timeouts().implicitlyWait(timeCapacity, TimeUnit.SECONDS);
             return driver;
         }
         return null;
