@@ -49,17 +49,22 @@ public class TS13_13 {
             // this is block locator
 //            WebElement message = driver.findElement(By.xpath("//body[@contenteditable='true']"));
 //          //this is input teg, what catch text, but while I put some text, value of that input changes and shearing to block
-            WebElement messageInput = driver.findElement(By.xpath("//input[@id='bxed_idPostFormLHE_blogPostForm']"));
-            String anyMessage = "Any Message Here";
-            messageInput.sendKeys("Any Message Here");
-            messageInput.getAttribute("value").replace("","Any Message Here");
+//            WebElement messageInput = driver.findElement(By.xpath("//input[@id='bxed_idPostFormLHE_blogPostForm']"));
+
+            WebElement iframe = driver.findElement(By.className("bx-editor-iframe"));
+            driver.switchTo().frame(iframe);
+//            String anyMessage = "Any Message Here";
+            WebElement textArea = driver.findElement(By.tagName("body"));
+            textArea.sendKeys("Any Message Here");
+            driver.switchTo().parentFrame();
             WebElement sendButton = driver.findElement(By.xpath("//button[@id='blog-submit-button-save']"));
             sendButton.click();
 ////input[@id='bxed_idPostFormLHE_blogPostForm']
             ////button[@id='blog-submit-button-save']
 
 
-            driver.quit();
+
+//            driver.quit();
 
         }
 
