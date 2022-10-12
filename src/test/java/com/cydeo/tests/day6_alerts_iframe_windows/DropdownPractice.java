@@ -33,7 +33,7 @@ public class DropdownPractice {
         selectState.selectByValue("VA");
         selectState.selectByIndex(5);
         String actualFinalOption = selectState.getFirstSelectedOption().getText();
-        String expectedFinalOption = "Californias";
+        String expectedFinalOption = "California";
         Assert.assertEquals(actualFinalOption, expectedFinalOption, "Verification final selected option is FAILED");
 
     }

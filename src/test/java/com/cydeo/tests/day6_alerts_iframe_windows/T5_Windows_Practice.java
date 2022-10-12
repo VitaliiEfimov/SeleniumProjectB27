@@ -47,6 +47,8 @@ public class T5_Windows_Practice {
         //5. Click to: “Click Here” link////a[.='Click Here']
         WebElement clickHereBtn = driver.findElement(By.xpath("//a[.='Click Here']"));
         clickHereBtn.click();
+        WebElement clickHereBtn1 = driver.findElement(By.xpath("//a[.='Click Here']"));
+
 
         actualTitle = driver.getTitle();
         System.out.println("After opening new window: " + actualTitle);
