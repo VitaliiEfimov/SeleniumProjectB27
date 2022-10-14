@@ -10,12 +10,16 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.asserts.SoftAssert;
 
+import java.util.concurrent.TimeUnit;
+
 public class TS13_71 {
     WebDriver driver;
 
     @BeforeMethod
     public void setUpClass() {
-        driver = WebDriverFactory.getDriver1("chrome", 20);
+        driver = WebDriverFactory.getDriver("chrome");
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.get("https://qa2.vytrack.com/user/login");
     }
 

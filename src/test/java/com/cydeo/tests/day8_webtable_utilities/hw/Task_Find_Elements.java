@@ -4,7 +4,6 @@ import com.cydeo.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -33,22 +32,42 @@ public class Task_Find_Elements {
             Expected: 109
      */
     WebDriver driver;
+
     @BeforeMethod
-    public void setUp(){
+    public void setUp() {
         driver = WebDriverFactory.getDriver1("chrome", 10);
         driver.get("https://www.openxcell.com");
     }
+
     @AfterMethod
-    public void tearDown(){
+    public void tearDown() {
         driver.quit();
     }
-    @Test(priority = 1, description = "Checking the number of links on the page")
-    public void checkingNumberOfLinks(){
+
+    @Test(priority = 1, description = "Checking the number of links on the page + Counting the number of links that does not have text")
+    public void checkingNumberOfLinks() {
         List<WebElement> checkingNumberOfLinks = driver.findElements(By.xpath("//a[contains(@href,'https')]"));
         SoftAssert softAssert = new SoftAssert();
-        System.out.println("checkingNumberOfLinks.size() = " + checkingNumberOfLinks.size());
-        Assert.assertEquals(""+checkingNumberOfLinks.size(),"332");
-
-
+        softAssert.assertEquals(checkingNumberOfLinks.size(), 332, "Checking the number of links on the page");
+        softAssert.assertAll();
     }
+
+    @Test(priority = 2, description = "Printing out the texts of the links on the page")
+    public void PrintingTextsOfTheLinks() {
+        List<WebElement> checkingNumberOfLinks = driver.findElements(By.xpath("//a[contains(@href,'https')]"));
+        int count = 0;
+        for (WebElement each : checkingNumberOfLinks) {
+
+            if (!each.getText().isEmpty()) {
+                System.out.println(each.getText());
+            } else {
+                count++;
+            }
+        }
+
+        SoftAssert softAssert = new SoftAssert();
+        softAssert.assertEquals(count, 109);
+        softAssert.assertAll();
+    }
+
 }
